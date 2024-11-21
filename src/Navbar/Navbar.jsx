@@ -2,15 +2,16 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from "../assets/logo.png"
 
+
 const Navbar = () => {
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-200">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="h-5 w-5"
+                            className="w-5 h-5"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor">
@@ -33,11 +34,11 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <NavLink className="">
-                    <img className='w-40' src={logo} alt="" />
+                    <img className='w-40 rounded-lg' src={logo} alt="" />
                 </NavLink>
             </div>
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+            <div className="hidden navbar-center lg:flex">
+                <ul className="px-1 menu menu-horizontal">
                     <li><NavLink to={'/'}>Home</NavLink></li>
                     <li><NavLink to={'/start-learning'}>start-learning</NavLink></li>
                     <li><NavLink to={'/tutorials'}>tutorials</NavLink></li>
