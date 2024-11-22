@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Aboutus = () => {
   return (
-    <div className="p-4 md:p-8 bg-gradient-to-b from-gray-100 to-gray-300">
-      {/* Header Section */}
+    <div className="p-4 rounded-lg md:p-8 bg-gradient-to-b from-gray-100 to-gray-300">
+      
       <div className="max-w-6xl mx-auto text-center">
         <h1 className="text-3xl font-bold text-gray-800 md:text-4xl">
           About Vocabulary Learning
@@ -17,9 +17,9 @@ const Aboutus = () => {
         </p>
       </div>
 
-      {/* Features Grid */}
+     
       <div className="grid grid-cols-1 gap-6 mt-12 md:grid-cols-2 lg:grid-cols-3">
-        {/* Feature Card 1 */}
+       
         <div className="p-6 bg-white border rounded-lg shadow-md">
           <h2 className="text-xl font-semibold text-gray-800 md:text-2xl">
             📖 Learn New Words
@@ -30,7 +30,7 @@ const Aboutus = () => {
           </p>
         </div>
 
-        {/* Feature Card 2 */}
+       
         <div className="p-6 bg-white border rounded-lg shadow-md">
           <h2 className="text-xl font-semibold text-gray-800 md:text-2xl">
             🎯 Track Your Progress
@@ -41,7 +41,7 @@ const Aboutus = () => {
           </p>
         </div>
 
-        {/* Feature Card 3 */}
+       
         <div className="p-6 bg-white border rounded-lg shadow-md">
           <h2 className="text-xl font-semibold text-gray-800 md:text-2xl">
             🌍 User-Friendly Design
@@ -52,7 +52,7 @@ const Aboutus = () => {
           </p>
         </div>
 
-        {/* Feature Card 4 */}
+        
         <div className="p-6 bg-white border rounded-lg shadow-md">
           <h2 className="text-xl font-semibold text-gray-800 md:text-2xl">
             🔐 Secure Profiles
@@ -63,7 +63,7 @@ const Aboutus = () => {
           </p>
         </div>
 
-        {/* Feature Card 5 */}
+        
         <div className="p-6 bg-white border rounded-lg shadow-md">
           <h2 className="text-xl font-semibold text-gray-800 md:text-2xl">
             📚 Tailored Lessons
@@ -74,7 +74,7 @@ const Aboutus = () => {
           </p>
         </div>
 
-        {/* Feature Card 6 */}
+       
         <div className="p-6 bg-white border rounded-lg shadow-md">
           <h2 className="text-xl font-semibold text-gray-800 md:text-2xl">
             ✨ Continuous Updates
@@ -86,7 +86,7 @@ const Aboutus = () => {
         </div>
       </div>
 
-      {/* Why Choose Us Section */}
+      
       <div className="max-w-6xl mx-auto mt-16 text-center">
         <h2 className="text-2xl font-bold text-gray-800 md:text-3xl">
           Why Choose Us?
@@ -98,7 +98,7 @@ const Aboutus = () => {
         </p>
       </div>
 
-      {/* Call to Action Button */}
+      
       <div className="flex justify-center mt-8">
         <Link to={'/start-learning'} className="px-6 py-3 text-sm font-bold text-white transition bg-blue-500 rounded-lg shadow-md hover:bg-blue-600 md:text-base">
           Start Learning Now

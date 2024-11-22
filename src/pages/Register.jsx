@@ -99,7 +99,7 @@ const { user,setUser,loading,setLoading} = useContext(AuthContext);
                         <NavLink to={'/login'}><button className='w-full mt-4 text-blue-700 btn btn-active'>Log In</button></NavLink>
                     </div>
 
-                    <button className='flex p-1 text-center btn btn-active' onClick={handleGoogleSignUp}> SignUp With Google <FcGoogle/></button>
+                    <button className='flex p-1 text-center btn btn-active' onClick={handleGoogleSignUp}><FcGoogle/> SignUp With Google </button>
                 </form>
 
                 

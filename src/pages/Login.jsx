@@ -108,7 +108,7 @@ const Login = () => {
 
             
           </div>
-          <button className='flex p-1 text-center btn btn-active' onClick={handleGoogleSignUp}> SignUp With Google <FcGoogle /></button>
+          <button className='flex p-1 text-center btn btn-active' onClick={handleGoogleSignUp}><FcGoogle /> SignUp With Google </button>
         </form>
       </div>
     </div>

@@ -16,7 +16,7 @@ const VocabularyCard = ({ vocabulary }) => {
     <div className="max-w-sm mx-auto overflow-hidden bg-white border border-gray-200 rounded-lg shadow-md">
       <div className="p-4">
         {/* Word Title */}
-        <h2 className="mb-2 text-2xl font-bold text-blue-500">{word}</h2>
+        <h2 className="mb-2 text-2xl font-bold text-purple-800">{word}</h2>
 
         {/* Pronunciation */}
         <p className="mb-2 text-sm text-gray-600">
@@ -37,8 +37,8 @@ const VocabularyCard = ({ vocabulary }) => {
           <p>
             <span className="font-semibold">Difficulty:</span> {difficulty}
           </p>
-          <p>
-            <span className="font-semibold">Lesson No:</span> {lesson_no}
+          <p className="p-1 text-white bg-purple-700 rounded-lg">
+            <span className="font-semibold ">Lesson No:</span> {lesson_no}
           </p>
         </div>
 
@@ -50,7 +50,7 @@ const VocabularyCard = ({ vocabulary }) => {
         {/* Example */}
         <p className="mt-4 text-gray-700">
           <span className="font-semibold">Example:</span> <br />
-          <span className="italic">{example}</span>
+          <span className="italic text-green-700">{example}</span>
         </p>
       </div>
     </div>

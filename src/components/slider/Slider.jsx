@@ -23,7 +23,7 @@ const Slider = () => {
                 <div id="item4" className="w-full carousel-item">
                     <img
                         src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
-                        className="w-full" />
+                        className="w-full rounded-lg" />
                 </div>
             </div>
             <div className="flex justify-center w-full gap-2 py-2">
