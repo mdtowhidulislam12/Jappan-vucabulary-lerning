@@ -1,23 +1,68 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { NavLink, useNavigate,  } from 'react-router-dom';
+import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { app } from '../firebase/firebase.init';
+import { AuthContext } from '../provider/AuthProvider';
+import { FcGoogle } from "react-icons/fc";
 
 
 
-const handleRegister = (e) => {
-    e.preventDefault();
-    const name = e.target.name.value;
-    const email = e.target.email.value;
-    const photo = e.target.photo.value;
-    const password =e.target.password.value;
+const auth = getAuth(app)
 
-    console.log(name, email, photo, password)
-}
+const googleProvider = new GoogleAuthProvider();
+
+
 
 const Register = () => {
+
+    
+const { user,setUser,loading,setLoading} = useContext(AuthContext);
+
+   const navigate = useNavigate();
+
+  
+    const handleGoogleSignUp = () =>{
+        signInWithPopup(auth,googleProvider)
+        .then(result=>{
+
+            const user =result.user;
+            setUser(user);
+            navigate('/')
+
+        }).catch((error)=>{
+            console.error(error.message)
+        })
+    }
+
+    const handleRegister = (e) => {
+        e.preventDefault();  
+        const name = e.target.name.value;
+        const email = e.target.email.value;
+        const photo = e.target.photo.value;
+        const password = e.target.password.value;
+
+        
+       
+        createUserWithEmailAndPassword(auth,email,password)
+        .then(result=>{
+            const user =result.user;
+            // console.log(user)
+            alert('Rgistration Successful!')
+
+            navigate('/')
+
+
+        }).catch((error)=>{
+            alert(error.message)
+        })
+      
+    };
+
+
     return (
-        <div className='flex items-center justify-center p-5'>
+        <div className='flex items-center justify-center p-1'>
             <div className="w-full max-w-sm shadow-2xl card bg-base-100 shrink-0">
-                <form onSubmit={handleRegister} className="card-body">
+                <form onSubmit={handleRegister} className="p-4 m-0 card-body">
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Name</span>
@@ -49,11 +94,15 @@ const Register = () => {
                         <button className="btn btn-primary">Register</button>
                     </div>
 
-                    <div className='flex items-center justify-between py-4'>
-                        <p className='text-green-800'>Already have an accoynt?</p>
-                        <NavLink to={'/login'}><button className='text-blue-700 btn btn-ghost'>Log In</button></NavLink>
+                    <div className='items-center justify-between py-4 md:flex '>
+                        <p className='text-sm text-green-800'>Already have an accoynt?</p>
+                        <NavLink to={'/login'}><button className='w-full mt-4 text-blue-700 btn btn-active'>Log In</button></NavLink>
                     </div>
+
+                    <button className='flex p-1 text-center btn btn-active' onClick={handleGoogleSignUp}> SignUp With Google <FcGoogle/></button>
                 </form>
+
+                
             </div>
         </div>
     );

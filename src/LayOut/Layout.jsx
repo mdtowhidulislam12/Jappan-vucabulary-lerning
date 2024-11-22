@@ -15,7 +15,7 @@ const Layout = () => {
             <Navbar></Navbar>
             </div>
 
-            <div className='mx-auto min-h-44 '>
+            <div className='p-10 mx-auto min-h-44 '>
                 <Outlet></Outlet>
             </div>
 

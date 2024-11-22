@@ -11,7 +11,20 @@ import Aboutus from './pages/Aboutus';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import AuthProvider from './Context/AuthProvider';
+import { AuthContext, AuthProvider } from './provider/AuthProvider';
+import MyProfile from './pages/MyProfile';
+import Others from './pages/Others';
+
+
+
+const fetchVocabularies = async () => {
+  const response = await fetch("/vocabularies.json");
+  if (!response.ok) {
+      throw new Error("Failed to fetch vocabularies");
+  }
+  return response.json();
+};
+
 
 const router = createBrowserRouter([
   {
@@ -24,7 +37,8 @@ const router = createBrowserRouter([
       },
       {
         path:'/start-learning',
-        element: <Learning></Learning>
+        element: <Learning></Learning>,
+        loader: fetchVocabularies,
       },
       {
         path:'/tutorials',
@@ -46,14 +60,29 @@ const router = createBrowserRouter([
         path:'/register',
         element: <Register></Register>
       },
+      {
+        path:'/profile',
+        element: <MyProfile></MyProfile>
+      },
+      {
+        path:'/others',
+        element: <Others></Others>
+      },
     ]
+
+    
   },
 ]);
 
+
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <AuthProvider>
-    <RouterProvider router={router}></RouterProvider>
-    </AuthProvider>
-  </StrictMode>,
+    
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+   
+  </StrictMode>
 )
+
