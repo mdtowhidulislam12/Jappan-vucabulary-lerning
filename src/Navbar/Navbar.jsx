@@ -48,6 +48,7 @@ const Navbar = () => {
                             <li><NavLink to={'/start-learning'}>start-learning</NavLink></li>
                             <li><NavLink to={'/tutorials'}>tutorials</NavLink></li>
                             <li><NavLink to={'/profile'}>My Profile</NavLink></li>
+                            <li><NavLink to={'/contact'}>Contact</NavLink></li>
 
                         </>}
                     </ul>
@@ -67,6 +68,7 @@ const Navbar = () => {
                         <li><NavLink to={'/start-learning'}>start-learning</NavLink></li>
                         <li><NavLink to={'/tutorials'}>tutorials</NavLink></li>
                         <li><NavLink to={'/profile'}>My Profile</NavLink></li>
+                        <li><NavLink to={'/contact'}>Contact</NavLink></li>
 
                     </>}
                 </ul>
