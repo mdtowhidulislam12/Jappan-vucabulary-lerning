@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Footer = () => {
+
+    const { user, setUser } = useContext(AuthContext)
     return (
-        <footer className="footer bg-base-300 text-base-content p-10">
+        <footer className="p-10 footer bg-base-300 text-base-content">
             <nav>
                 <h6 className="footer-title">Services</h6>
                 <a className="link link-hover">Branding</a>
@@ -12,13 +15,22 @@ const Footer = () => {
                 <a className="link link-hover">Advertisement</a>
             </nav>
             <nav>
-                <h6 className="footer-title">Company</h6>
+                <h6 className="footer-title">Language Learner</h6>
                 <ul className='space-y-3'>
-                <li><NavLink to={'/'}>Home</NavLink></li>
-                <li><NavLink to={'/start-learning'}>start-learning</NavLink></li>
-                <li><NavLink to={'/tutorials'}>tutorials</NavLink></li>
-                <li><NavLink to={'/about-us'}>about-us</NavLink></li>
-                <li><NavLink to={'/contact'}>Contact</NavLink></li>
+                    <li><NavLink to={'/'}>Home</NavLink></li>
+                    
+                 
+                    <li><NavLink to={'/about-us'}>about-us</NavLink></li>
+                   
+
+                    {user && <>
+
+                        <li><NavLink to={'/start-learning'}>start-learning</NavLink></li>
+                        <li><NavLink to={'/tutorials'}>tutorials</NavLink></li>
+                        
+                        <li><NavLink to={'/contact'}>Contact</NavLink></li>
+
+                    </>}
 
                 </ul>
             </nav>

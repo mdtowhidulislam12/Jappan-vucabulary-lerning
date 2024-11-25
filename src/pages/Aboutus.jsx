@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Aboutus = () => {
+  const {user,setUser}=useContext(AuthContext)
   return (
     <div className="p-4 rounded-lg md:p-8 bg-gradient-to-b from-gray-100 to-gray-300">
       
@@ -100,7 +102,7 @@ const Aboutus = () => {
 
       
       <div className="flex justify-center mt-8">
-        <Link to={'/start-learning'} className="px-6 py-3 text-sm font-bold text-white transition bg-blue-500 rounded-lg shadow-md hover:bg-blue-600 md:text-base">
+        <Link to={user? '/start-learning':'/login'} className="px-6 py-3 text-sm font-bold text-white transition bg-blue-500 rounded-lg shadow-md hover:bg-blue-600 md:text-base">
           Start Learning Now
         </Link>
       </div>
