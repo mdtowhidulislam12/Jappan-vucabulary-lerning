@@ -6,6 +6,7 @@ const Footer = () => {
 
     const { user, setUser } = useContext(AuthContext)
     return (
+        <>
         <footer className="p-10 footer bg-base-300 text-base-content">
             <nav>
                 <h6 className="footer-title">Services</h6>
@@ -72,7 +73,10 @@ const Footer = () => {
                     </a>
                 </div>
             </nav>
+            
         </footer>
+        <div className='flex justify-center px-4 py-10 text-gray-400 bg-base-300'><p >&copy;2024 Langauge Learner alright reserved!</p></div>
+        </>
     );
 };
 
