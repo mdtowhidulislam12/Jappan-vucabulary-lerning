@@ -1,9 +1,13 @@
 import React, { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from "../assets/logo.png";
 import { AuthContext } from '../provider/AuthProvider';
 import { signOut } from 'firebase/auth';
 import auth from '../firebase/firebase.init';
+import { FaUser } from 'react-icons/fa';
+import { MdSpaceDashboard } from 'react-icons/md';
+import { FaGear } from 'react-icons/fa6';
+import { FiLogOut } from 'react-icons/fi';
 
 const Navbar = () => {
     const { user, setUser } = useContext(AuthContext);
@@ -40,7 +44,7 @@ const Navbar = () => {
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                         <li><NavLink to={'/'}>Home</NavLink></li>
-                        
+
                         <li><NavLink to={'/about-us'}>about-us</NavLink></li>
 
                         {user && <>
@@ -60,7 +64,7 @@ const Navbar = () => {
             <div className="hidden navbar-center lg:flex">
                 <ul className="px-1 menu menu-horizontal">
                     <li><NavLink to={'/'}>Home</NavLink></li>
-                    
+
                     <li><NavLink to={'/about-us'}>about-us</NavLink></li>
 
                     {user && <>
@@ -75,11 +79,29 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 {user ? (
-                    <div>
-                        <NavLink onClick={handaleLogOut} to="" className="btn btn-active">Log Out</NavLink>
+                    <div className="dropdown dropdown-end">
+                        <button className="btn btn-ghost avatar" tabIndex={0}>
+                            <div className="w-10 rounded-full">
+                                <img src={user.photoURL || "https://via.placeholder.com/40"} alt="User Avatar" />
+                            </div>
+                        </button>
+                        <ul
+                            tabIndex={0}
+                            className="menu dropdown-content bg-purple-500 text-white rounded-box  w-52 p-2 shadow min-h-64 z-20">
+                            <li><Link to={'/profile'}><FaUser></FaUser> Profile</Link></li>
+                            <li>
+                                <button ><MdSpaceDashboard></MdSpaceDashboard> Dashboard</button>
+                            </li>
+                            <li>
+                                <button > <FaGear></FaGear> Settings</button>
+                            </li>
+                            <li className='mt-32'>
+                                <button className='text-gray-200 font-bold' onClick={handaleLogOut}><FiLogOut></FiLogOut> Logout</button>
+                            </li>
+                        </ul>
                     </div>
                 ) : (
-                    <NavLink to="/login" className="btn btn-primary">Log in</NavLink>
+                    <NavLink to="/login" className="btn btn-outline bg-purple-500 text-white">Log in</NavLink>
                 )}
             </div>
         </div>
